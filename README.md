@@ -23,7 +23,8 @@ make setup
 ```bash
 make start-http
 ```
-Server will run on `http://0.0.0.0:3333` (SSE endpoint: `/sse`)
+Server will run on `http://0.0.0.0:3333` (Endpoint: `/mcp`)
+
 
 **HTTPS Mode:**
 ```bash

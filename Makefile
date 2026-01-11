@@ -41,11 +41,27 @@ endif
 	@echo "Setup complete!"
 
 start-http:
-	@echo "Starting MCP server in HTTP mode..."
+	@echo "Starting MCP server in HTTP mode with Uvicorn..."
 ifeq ($(OS),Windows_NT)
-	$(VENV_BIN)\fastmcp run app.py:mcp --transport sse --port 3333 --host 0.0.0.0
+	$(VENV_BIN)\uvicorn app:asgi_app --host 0.0.0.0 --port 3333 --timeout-keep-alive 3600
 else
-	$(VENV_BIN)/fastmcp run app.py:mcp --transport sse --port 3333 --host 0.0.0.0
+	$(VENV_BIN)/uvicorn app:asgi_app --host 0.0.0.0 --port 3333 --timeout-keep-alive 3600
+endif
+
+start-dev-https:
+	@echo "Starting MCP server in HTTPS mode..."
+ifeq ($(OS),Windows_NT)
+	$(VENV_BIN)\fastmcp run app.py:mcp --transport sse --port 3334 --host 0.0.0.0
+else
+	$(VENV_BIN)/fastmcp run app.py:mcp --transport sse --port 3334 --host 0.0.0.0
+endif
+
+start-dev-http:
+	@echo "Starting MCP server in HTTP mode with Uvicorn..."
+ifeq ($(OS),Windows_NT)
+	$(VENV_BIN)\uvicorn app:mcp --host 0.0.0.0 --port 3333 --timeout-keep-alive 3600
+else
+	$(VENV_BIN)/uvicorn app:mcp --host 0.0.0.0 --port 3333 --timeout-keep-alive 3600
 endif
 
 start-https:
