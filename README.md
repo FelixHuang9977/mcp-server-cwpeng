@@ -23,13 +23,13 @@ make setup
 ```bash
 make start-http
 ```
-Server will run on `http://127.0.0.1:3333` (SSE endpoint: `/sse`)
+Server will run on `http://0.0.0.0:3333` (SSE endpoint: `/sse`)
 
 **HTTPS Mode:**
 ```bash
 make start-https
 ```
-Server will run on `https://127.0.0.1:3334` (SSE endpoint: `/sse`)
+Server will run on `https://0.0.0.0:3334` (SSE endpoint: `/sse`)
 
 ### 3. Stop Server
 
