@@ -1,3 +1,4 @@
+import time
 from fastmcp import FastMCP
 
 mcp = FastMCP("aaa")
