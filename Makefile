@@ -43,17 +43,17 @@ endif
 start-http:
 	@echo "Starting MCP server in HTTP mode..."
 ifeq ($(OS),Windows_NT)
-	$(VENV_BIN)\fastmcp run app.py --transport sse --port 3333 --host 0.0.0.0
+	$(VENV_BIN)\fastmcp run app.py:mcp --transport sse --port 3333 --host 0.0.0.0
 else
-	$(VENV_BIN)/fastmcp run app.py --transport sse --port 3333 --host 0.0.0.0
+	$(VENV_BIN)/fastmcp run app.py:mcp --transport sse --port 3333 --host 0.0.0.0
 endif
 
 start-https:
 	@echo "Starting MCP server in HTTPS mode..."
 ifeq ($(OS),Windows_NT)
-	$(VENV_BIN)\fastmcp run app.py --transport sse --port 3334 --host 0.0.0.0
+	$(VENV_BIN)\fastmcp run app.py:mcp --transport sse --port 3334 --host 0.0.0.0
 else
-	$(VENV_BIN)/fastmcp run app.py --transport sse --port 3334 --host 0.0.0.0
+	$(VENV_BIN)/fastmcp run app.py:mcp --transport sse --port 3334 --host 0.0.0.0
 endif
 
 start: start-http
